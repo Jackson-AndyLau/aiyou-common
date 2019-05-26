@@ -1,5 +1,6 @@
 package com.huazai.b2c.aiyou.common;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,19 +16,24 @@ import java.util.List;
  *
  * @version V1.0.0
  */
-public class EasyUIDataGrid
+public class EasyUIDataGrid implements Serializable
 {
 
-	private Integer total;
+	/** 
+	 * @Files serialVersionUID : TODO 
+	 */  
+	private static final long serialVersionUID = 1L;
+
+	private Long total;
 
 	private List<?> list;
 
-	public Integer getTotal()
+	public Long getTotal()
 	{
 		return total;
 	}
 
-	public void setTotal(Integer total)
+	public void setTotal(Long total)
 	{
 		this.total = total;
 	}
