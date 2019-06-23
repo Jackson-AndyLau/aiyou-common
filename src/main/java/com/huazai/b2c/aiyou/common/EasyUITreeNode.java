@@ -27,7 +27,7 @@ public class EasyUITreeNode implements Serializable
 
 	private String text;
 
-	private String status;
+	private String state;
 
 	public Long getId()
 	{
@@ -49,14 +49,14 @@ public class EasyUITreeNode implements Serializable
 		this.text = text;
 	}
 
-	public String getStatus()
+	public String getState()
 	{
-		return status;
+		return state;
 	}
 
-	public void setStatus(String status)
+	public void setState(String state)
 	{
-		this.status = status;
+		this.state = state;
 	}
 
 }
