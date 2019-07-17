@@ -18,4 +18,10 @@ public class Constant
 
 	public static final Integer CONTENT_CATEGORY_DEFAULT_STATUS = 1;
 	
+	// 商品状态，1-正常，2-下架，3-删除
+	public static final Byte TB_ITEM_STATUS_NORMAL = 1;
+	public static final Byte TB_ITEM_STATUS_SOUT = 2;
+	public static final Byte TB_ITEM_STATUS_DELETE = 3;
+	
+	
 }
