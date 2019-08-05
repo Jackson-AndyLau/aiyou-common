@@ -75,6 +75,15 @@ public class SearchItemDto implements Serializable
 	{
 		return image;
 	}
+	
+	public String[] getImages()
+	{
+		if(image != null && !image.equals("")) {
+			String[] imgs = image.split(",");
+			return imgs;
+		}
+		return null;
+	}
 
 	public void setImage(String image)
 	{
