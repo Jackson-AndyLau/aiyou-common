@@ -9,11 +9,13 @@ package com.huazai.b2c.aiyou.utils;
  *              </ul>
  * @className HttpUtil
  * @package com.huazai.b2c.aiyou.utils
- * @createdTime 2019年5月1日 下午6:35:51
+ * @createdTime 2017年06月17日
  *
  * @version V1.0.0
  */
-public class HttpUtil
+public class HttpClientUtils
 {
+
+
 
 }
