@@ -46,4 +46,11 @@ public class HttpResultData
 		this.body = body;
 	}
 
+	public HttpResultData(int code, String body)
+	{
+		super();
+		this.code = code;
+		this.body = body;
+	}
+
 }
