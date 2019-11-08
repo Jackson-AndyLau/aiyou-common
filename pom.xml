@@ -58,5 +58,11 @@
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 		</dependency>
+		<!-- 短信发送相关 -->
+		<dependency>
+			<groupId>com.aliyun</groupId>
+			<artifactId>aliyun-java-sdk-core</artifactId>
+			<version>${aliyun.version}</version>
+		</dependency>
 	</dependencies>
 </project>

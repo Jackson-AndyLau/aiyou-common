@@ -23,5 +23,9 @@ public class Constant
 	public static final Byte TB_ITEM_STATUS_INSTOCK = 2;
 	public static final Byte TB_ITEM_STATUS_DELETE = 3;
 	
+	// 邮件相关参数
+	public static final String EMAIL_USER_NAME = "账户";
+	public static final String EMAIL_USER_PASSWORD = "密码";
+	
 	
 }
