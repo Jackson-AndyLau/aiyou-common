@@ -8,6 +8,7 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
+import com.huazai.b2c.aiyou.common.Constant;
 import com.huazai.b2c.aiyou.repo.AiyouResultData;
 
 /**
@@ -42,7 +43,8 @@ public class SendSMSUtils
 	 */
 	public static AiyouResultData doSendSMS()
 	{
-		DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "<accessKeyId>", "<accessSecret>");
+		DefaultProfile profile = DefaultProfile.getProfile(Constant.SMS_REGIONID, Constant.SMS_ACCESSKEYID,
+				Constant.SMS_ACCESSSECRET);
 		IAcsClient client = new DefaultAcsClient(profile);
 
 		CommonRequest request = new CommonRequest();
@@ -50,9 +52,10 @@ public class SendSMSUtils
 		request.setDomain("dysmsapi.aliyuncs.com");
 		request.setVersion("2017-05-25");
 		request.setAction("SendSms");
-		request.putQueryParameter("RegionId", "cn-hangzhou");
-		request.putQueryParameter("PhoneNumbers", "158****1919");
-		request.putQueryParameter("SignName", "哎呦喂");
+		request.putQueryParameter("RegionId", Constant.SMS_REGIONID);
+		request.putQueryParameter("PhoneNumbers", Constant.SMS_PHONENUMBERS);
+		request.putQueryParameter("SignName", Constant.SMS_SIGNNAME);
+		request.putQueryParameter("TemplateCode", Constant.SMS_TEMPLATECODE);
 		try
 		{
 			CommonResponse response = client.getCommonResponse(request);
