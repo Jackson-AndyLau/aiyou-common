@@ -61,18 +61,45 @@ public class HttpClientUtils
 	 *
 	 * @version : V1.0.0
 	 */
-	public HttpResultData doGet(String uri, Map<String, Object> map) throws Exception
+	public HttpResultData doGet(String uri, Map<String, Object> map)
 	{
-		// 1、创建URIBuilder对象
-		URIBuilder uriBuilder = new URIBuilder(uri);
-		encapRequestParams(map, uriBuilder);
-		// 3、创建 HttpGet对象
-		HttpGet httpGet = new HttpGet(uriBuilder.build());
-		// 4、使用httpClient发起请求
-		CloseableHttpResponse response = httpClient.execute(httpGet);
-		// 5、解析返回结果，封装返回对象HttpResultData
-		HttpResultData resultData = this.parseHttpResultData(response);
-		return resultData;
+		CloseableHttpResponse response = null;
+		try
+		{
+			// 1、创建URIBuilder对象
+			URIBuilder uriBuilder = new URIBuilder(uri);
+			encapRequestParams(map, uriBuilder);
+			// 3、创建 HttpGet对象
+			HttpGet httpGet = new HttpGet(uriBuilder.build());
+			// 4、使用httpClient发起请求
+			response = httpClient.execute(httpGet);
+			// 5、解析返回结果，封装返回对象HttpResultData
+			HttpResultData resultData = this.parseHttpResultData(response);
+			// 打印日志输出
+
+			return resultData;
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			// 打印日志输出
+		} finally
+		{
+			// 6、释放资源
+			try
+			{
+				if (response != null)
+				{
+					response.close();
+				}
+				httpClient.close();
+			} catch (IOException e)
+			{
+				// 打印日志输出
+				e.printStackTrace();
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -113,19 +140,46 @@ public class HttpClientUtils
 	 * @version : V1.0.0
 	 * @throws Exception
 	 */
-	public HttpResultData doPost(String uri, Map<String, Object> map) throws Exception
+	public HttpResultData doPost(String uri, Map<String, Object> map)
 	{
-		// 1、声明 HttpPost对象
-		HttpPost request = new HttpPost();
-		// 2、封装请求参数，请求数据表单
-		UrlEncodedFormEntity entity = this.encapRequestParams(map);
-		// 3、设置请求数据表单
-		request.setEntity(entity);
-		// 4、通过HttpClient执行请求
-		CloseableHttpResponse response = httpClient.execute(request);
-		// 5、解析返回结果，封装返回对象HttpResultData
-		HttpResultData resultData = this.parseHttpResultData(response);
-		return resultData;
+		CloseableHttpResponse response = null;
+		try
+		{
+			// 1、声明 HttpPost对象
+			HttpPost request = new HttpPost();
+			// 2、封装请求参数，请求数据表单
+			UrlEncodedFormEntity entity = this.encapRequestParams(map);
+			// 3、设置请求数据表单
+			request.setEntity(entity);
+			// 4、通过HttpClient执行请求
+			response = httpClient.execute(request);
+			// 5、解析返回结果，封装返回对象HttpResultData
+			HttpResultData resultData = this.parseHttpResultData(response);
+			// 打印日志输出
+
+			return resultData;
+		} catch (Exception e)
+		{
+			// 打印日志输出
+			e.printStackTrace();
+		} finally
+		{
+			// 6、释放资源
+			try
+			{
+				if (response != null)
+				{
+					response.close();
+				}
+				httpClient.close();
+			} catch (IOException e)
+			{
+				// 打印日志输出
+				e.printStackTrace();
+			}
+		}
+		return null;
+
 	}
 
 	/**
@@ -167,19 +221,46 @@ public class HttpClientUtils
 	 * @version : V1.0.0
 	 * @throws Exception
 	 */
-	public HttpResultData doPut(String uri, Map<String, Object> map) throws Exception
+	public HttpResultData doPut(String uri, Map<String, Object> map)
 	{
-		// 1、生命HttpPut对象
-		HttpPut request = new HttpPut();
-		// 2、封装请求参数
-		UrlEncodedFormEntity entity = this.encapRequestParams(map);
-		// 3、设置请求表单数据
-		request.setEntity(entity);
-		// 4、通过HttpClient执行请求
-		CloseableHttpResponse response = httpClient.execute(request);
-		// 5、封装解析返回结果，封装返回对象HttpResultData
-		HttpResultData resultData = this.parseHttpResultData(response);
-		return resultData;
+		CloseableHttpResponse response = null;
+		try
+		{
+			// 1、生命HttpPut对象
+			HttpPut request = new HttpPut();
+			// 2、封装请求参数
+			UrlEncodedFormEntity entity = this.encapRequestParams(map);
+			// 3、设置请求表单数据
+			request.setEntity(entity);
+			// 4、通过HttpClient执行请求
+			response = httpClient.execute(request);
+			// 5、封装解析返回结果，封装返回对象HttpResultData
+			HttpResultData resultData = this.parseHttpResultData(response);
+			// 打印日志输出
+
+			return resultData;
+		} catch (Exception e)
+		{
+			// 打印日志输出
+			e.printStackTrace();
+		} finally
+		{
+			// 6、释放资源
+			try
+			{
+				if (response != null)
+				{
+					response.close();
+				}
+				httpClient.close();
+			} catch (IOException e)
+			{
+				// 打印日志输出
+				e.printStackTrace();
+			}
+		}
+		return null;
+
 	}
 
 	/**
@@ -221,19 +302,45 @@ public class HttpClientUtils
 	 * @version : V1.0.0
 	 * @throws Exception
 	 */
-	public HttpResultData doDelete(String uri, Map<String, Object> map) throws Exception
+	public HttpResultData doDelete(String uri, Map<String, Object> map)
 	{
-		// 1、创建URIBuilder对象
-		URIBuilder uriBuilder = new URIBuilder(uri);
-		// 2、设置请求参数
-		this.encapRequestParams(map, uriBuilder);
-		// 3、创建 HttpGet对象
-		HttpDelete request = new HttpDelete(uriBuilder.build());
-		// 4、使用httpClient发起请求
-		CloseableHttpResponse response = httpClient.execute(request);
-		// 5、解析返回结果，封装返回对象HttpResultData
-		HttpResultData resultData = this.parseHttpResultData(response);
-		return resultData;
+		CloseableHttpResponse response = null;
+		try
+		{
+			// 1、创建URIBuilder对象
+			URIBuilder uriBuilder = new URIBuilder(uri);
+			// 2、设置请求参数
+			this.encapRequestParams(map, uriBuilder);
+			// 3、创建 HttpGet对象
+			HttpDelete request = new HttpDelete(uriBuilder.build());
+			// 4、使用httpClient发起请求
+			response = httpClient.execute(request);
+			// 5、解析返回结果，封装返回对象HttpResultData
+			HttpResultData resultData = this.parseHttpResultData(response);
+			// 打印日志输出
+
+			return resultData;
+		} catch (Exception e)
+		{
+			// 打印日志输出
+			e.printStackTrace();
+		} finally
+		{
+			// 6、释放资源
+			try
+			{
+				if (response != null)
+				{
+					response.close();
+				}
+				httpClient.close();
+			} catch (IOException e)
+			{
+				// 打印日志输出
+				e.printStackTrace();
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -250,7 +357,7 @@ public class HttpClientUtils
 	 * @return HttpResultData
 	 *
 	 * @version : V1.0.0
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public HttpResultData doDelete(String uri) throws Exception
 	{
@@ -327,7 +434,7 @@ public class HttpClientUtils
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 
 	 * @author HuaZai
