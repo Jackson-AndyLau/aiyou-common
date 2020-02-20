@@ -312,7 +312,8 @@ public final class CookieUtils
 			if (cookieMaxage > 0)
 				cookie.setMaxAge(cookieMaxage);
 			if (null != request)
-			{// 设置域名的cookie
+			{
+				// 设置域名的cookie
 				String domainName = getDomainName(request);
 				System.out.println(domainName);
 				if (!"localhost".equals(domainName))
