@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.utils;
+package com.huazai.aiyou.common.utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import com.huazai.b2c.aiyou.repo.HttpResultData;
+import com.huazai.aiyou.common.response.HttpResultData;
 
 /**
  * 

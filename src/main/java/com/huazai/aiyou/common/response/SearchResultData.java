@@ -1,9 +1,9 @@
-package com.huazai.b2c.aiyou.repo;
+package com.huazai.aiyou.common.response;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.huazai.b2c.aiyou.dto.SearchItemDto;
+import com.huazai.aiyou.common.dto.SearchItemDto;
 
 /**
  * 

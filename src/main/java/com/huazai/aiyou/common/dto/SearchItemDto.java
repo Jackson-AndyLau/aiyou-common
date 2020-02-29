@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.dto;
+package com.huazai.aiyou.common.dto;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.utils;
+package com.huazai.aiyou.common.utils;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -22,8 +22,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
-import com.huazai.b2c.aiyou.common.Constant;
-import com.huazai.b2c.aiyou.repo.AiyouResultData;
+import com.huazai.aiyou.common.constant.TbConstant;
+import com.huazai.aiyou.common.response.AiyouResultData;
 
 /**
  * 
@@ -79,7 +79,7 @@ public class SendMailUtils
 			msg.setRecipient(Message.RecipientType.TO, new InternetAddress("who.seek.me@java98k.vip"));
 			// 4、创建Transport对象，通过这个对象发送邮件
 			Transport transport = session.getTransport();
-			transport.connect("smtp.aliyun.com", Constant.EMAIL_USER_NAME, Constant.EMAIL_USER_PASSWORD);
+			transport.connect("smtp.aliyun.com", TbConstant.EMAIL_USER_NAME, TbConstant.EMAIL_USER_PASSWORD);
 			transport.sendMessage(msg, msg.getAllRecipients());
 			// 关闭连接
 			transport.close();
@@ -123,7 +123,7 @@ public class SendMailUtils
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication()
 			{
-				return new PasswordAuthentication(Constant.EMAIL_USER_NAME, Constant.EMAIL_USER_PASSWORD);
+				return new PasswordAuthentication(TbConstant.EMAIL_USER_NAME, TbConstant.EMAIL_USER_PASSWORD);
 			}
 		});
 		session.setDebug(true);
@@ -207,7 +207,7 @@ public class SendMailUtils
 			msg.setContent(multipart);
 			// 7、创建Transport对象，通过这个对象发送邮件
 			Transport transport = session.getTransport();
-			transport.connect("smtp.aliyun.com", Constant.EMAIL_USER_NAME, Constant.EMAIL_USER_PASSWORD);
+			transport.connect("smtp.aliyun.com", TbConstant.EMAIL_USER_NAME, TbConstant.EMAIL_USER_PASSWORD);
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 		} catch (MessagingException e)
@@ -276,7 +276,7 @@ public class SendMailUtils
 			msg.setContent(multipart);
 			// 7、创建Transport对象，通过这个对象发送邮件
 			Transport transport = session.getTransport();
-			transport.connect("smtp.aliyun.com", Constant.EMAIL_USER_NAME, Constant.EMAIL_USER_PASSWORD);
+			transport.connect("smtp.aliyun.com", TbConstant.EMAIL_USER_NAME, TbConstant.EMAIL_USER_PASSWORD);
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
 		} catch (MessagingException e)

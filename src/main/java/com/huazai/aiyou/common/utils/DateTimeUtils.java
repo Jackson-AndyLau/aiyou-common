@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.utils;
+package com.huazai.aiyou.common.utils;
 
 import java.util.Date;
 

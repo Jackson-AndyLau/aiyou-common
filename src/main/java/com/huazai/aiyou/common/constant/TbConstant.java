@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.common;
+package com.huazai.aiyou.common.constant;
 
 /**
  * 
@@ -13,7 +13,7 @@ package com.huazai.b2c.aiyou.common;
  *
  * @version V1.0.0
  */
-public class Constant
+public class TbConstant
 {
 
 	public static final Integer CONTENT_CATEGORY_DEFAULT_STATUS = 1;

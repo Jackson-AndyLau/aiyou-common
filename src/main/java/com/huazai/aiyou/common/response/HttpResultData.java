@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.repo;
+package com.huazai.aiyou.common.response;
 
 /**
  * 

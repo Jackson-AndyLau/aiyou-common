@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.vo;
+package com.huazai.aiyou.common.vo;
 
 import java.io.Serializable;
 
