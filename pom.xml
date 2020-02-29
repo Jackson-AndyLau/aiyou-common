@@ -7,6 +7,7 @@
 		<artifactId>aiyou-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<groupId>com.huazai.aiyou.common</groupId>
 	<artifactId>aiyou-common</artifactId>
 	<!-- 依赖工具类的jar包 -->
 	<dependencies>
